@@ -1,0 +1,25 @@
+h1 {
+	text-align: center;
+}
+
+.letter {
+	display: inline-block;
+    list-style: none;
+    width: 20px;
+    margin: 0 5px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    color: white;
+
+}
+
+
+
+.correct {
+    background-color: green;
+    transition: all 1s ease;
+}
+
+.current-word {
+    list-style: none;
+}
