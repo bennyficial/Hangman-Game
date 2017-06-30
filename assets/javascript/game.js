@@ -7,7 +7,7 @@
 	var lettersGuessed = lettersMatched = '';
 	var numLettersMatched = 0;
     
-	var words = ["bae", "nochill", "hipster", "memes", "twerk", "dandy"]
+	var words = ["bae", "nochill", "hipster", "memes", "twerk", "dank"]
 
 	var wordChoice = words[Math.floor
 		(Math.random() * words.length)];
@@ -30,6 +30,21 @@
 
 	// 1
 
+	function reset() {
+      		wordChoice = words[Math.floor(Math.random() * words.length)];
+			letters.innerHTML = '<li class="current-word"></li>';
+          // console.log(letters);
+          for (i = 0; i < wordChoice.length; i++) {
+              wordLetter = '<li class="letter letter' + wordChoice.charAt(i).toLowerCase() + '">' + wordChoice.charAt(i).toLowerCase() + '</li>';
+              letters.insertAdjacentHTML('beforeend', wordLetter);
+              console.log(wordLetter);
+          }
+			guessesLeft = 10;	
+				
+			userGuess = badGuessesSoFar;
+			badGuessesSoFar = [];
+			}
+
 	var player = document.onkeyup = function(event){
         var userGuess = event.key.toLowerCase();
         var element1 = document.getElementById("p2");
@@ -49,6 +64,7 @@
 
 	else {
           console.log("good job")
+          
           if (wordChoice.indexOf(userGuess) > -1) {
               var lettersToShow;
              
@@ -68,20 +84,12 @@
 		// Once you reach 0
 		if (guessesLeft <= 0) {
       		console.log("You Lose!!");
-      		wordChoice = words[Math.floor(Math.random() * words.length)];
-			letters.innerHTML = '<li class="current-word"></li>';
-          // console.log(letters);
-          for (i = 0; i < wordChoice.length; i++) {
-              wordLetter = '<li class="letter letter' + wordChoice.charAt(i).toLowerCase() + '">' + wordChoice.charAt(i).toLowerCase() + '</li>';
-              letters.insertAdjacentHTML('beforeend', wordLetter);
-              console.log(wordLetter);
-          }
-			guessesLeft = 10;	
-				
-			userGuess = badGuessesSoFar;
-			badGuessesSoFar = [];
-			
+
+      		reset();
 
 		}
+
+
+
 }
 
